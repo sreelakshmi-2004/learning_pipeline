@@ -1,0 +1,110 @@
+[
+  {
+    "id": "proj-01",
+    "title": "Automated Multi-Branch CI/CD Pipeline",
+    "category": "cicd",
+    "badge": "CI/CD Core",
+    "status": "Completed",
+    "description": "Enterprise-grade CI/CD pipeline featuring automated testing, code quality gates with SonarQube, Docker image build and push, and zero-downtime deployment.",
+    "highlights": [
+      "Automated webhook triggers on GitHub push and pull request events",
+      "Integrated SonarQube static analysis with 85%+ code coverage threshold",
+      "Vulnerability scanning with Trivy before pushing to Docker Hub registry",
+      "Automated Slack notification on build failure or successful deployment"
+    ],
+    "tools": ["Jenkins", "Docker", "SonarQube", "Trivy", "GitHub Actions", "Slack API"],
+    "metrics": "Reduced deployment lead time from 4 hours to 12 minutes",
+    "githubUrl": "https://github.com/example/devops-ci-cd-pipeline",
+    "demoUrl": "https://example.com/demo/cicd"
+  },
+  {
+    "id": "proj-02",
+    "title": "Production-Ready Kubernetes Microservices Cluster",
+    "category": "containers",
+    "badge": "Cloud Native",
+    "status": "Completed",
+    "description": "Multi-tier microservices application deployed to Kubernetes with Nginx Ingress, Cert-Manager SSL termination, Horizontal Pod Autoscaling (HPA), and persistent storage.",
+    "highlights": [
+      "Modular Helm charts for service deployments, config maps, and secrets",
+      "Configured Horizontal Pod Autoscaling (HPA) based on CPU and memory thresholds",
+      "Network policies enforcing zero-trust communication between namespaces",
+      "Automated TLS certificate provisioning via Let's Encrypt and Cert-Manager"
+    ],
+    "tools": ["Kubernetes", "Docker", "Helm", "Nginx Ingress", "Cert-Manager", "MetalLB"],
+    "metrics": "Maintained 99.95% uptime with self-healing pod replicas",
+    "githubUrl": "https://github.com/example/k8s-microservices-deployment",
+    "demoUrl": "https://example.com/demo/k8s"
+  },
+  {
+    "id": "proj-03",
+    "title": "Infrastructure as Code with Terraform on AWS",
+    "category": "iac",
+    "badge": "IaC & Cloud",
+    "status": "Completed",
+    "description": "Automated provisioning of highly available AWS infrastructure using modular Terraform with remote state management and DynamoDB state locking.",
+    "highlights": [
+      "Custom multi-AZ VPC architecture with public, private, and database subnets",
+      "Auto-scaling EC2 groups behind an Application Load Balancer (ALB)",
+      "Secure remote backend using Amazon S3 bucket and DynamoDB locking",
+      "CI validation pipeline running terraform fmt, validate, and tfsec"
+    ],
+    "tools": ["Terraform", "AWS (VPC, EC2, ALB, S3)", "DynamoDB", "tfsec", "TFLint"],
+    "metrics": "Spun up complete multi-tier cloud environment in under 6 minutes",
+    "githubUrl": "https://github.com/example/terraform-aws-architecture",
+    "demoUrl": "https://example.com/demo/terraform"
+  },
+  {
+    "id": "proj-04",
+    "title": "Full-Stack Observability with Prometheus & Grafana",
+    "category": "monitoring",
+    "badge": "Observability",
+    "status": "Completed",
+    "description": "Centralized monitoring and metrics collection system with custom Grafana dashboards, Alertmanager integration, and automated incident alerting.",
+    "highlights": [
+      "Custom Grafana dashboards tracking RED and USE metrics across nodes",
+      "Prometheus Alertmanager rules routing critical alerts via PagerDuty and Discord",
+      "Node Exporter and cAdvisor for host-level and container-level telemetry",
+      "Loki and Promtail integration for aggregated real-time log analysis"
+    ],
+    "tools": ["Prometheus", "Grafana", "Alertmanager", "Node Exporter", "Loki", "cAdvisor"],
+    "metrics": "Mean Time to Detect (MTTD) degraded system health cut by 70%",
+    "githubUrl": "https://github.com/example/prometheus-grafana-monitoring",
+    "demoUrl": "https://example.com/demo/monitoring"
+  },
+  {
+    "id": "proj-05",
+    "title": "GitOps Continuous Delivery with ArgoCD",
+    "category": "cicd",
+    "badge": "GitOps",
+    "status": "Completed",
+    "description": "Declarative GitOps continuous delivery workflow synchronizing Kubernetes application manifests from Git repositories with automatic drift detection and rollback.",
+    "highlights": [
+      "Repository-driven deployments using ArgoCD ApplicationSet and Kustomize",
+      "Automated canary deployments with Argo Rollouts and Prometheus metrics",
+      "Real-time drift detection and automated remediation against manual cluster changes",
+      "Role-Based Access Control (RBAC) integration with GitHub SSO"
+    ],
+    "tools": ["ArgoCD", "Kubernetes", "Kustomize", "Argo Rollouts", "GitHub"],
+    "metrics": "Zero manual kubectl commands executed in staging or production",
+    "githubUrl": "https://github.com/example/gitops-argocd-workflow",
+    "demoUrl": "https://example.com/demo/gitops"
+  },
+  {
+    "id": "proj-06",
+    "title": "Server Hardening & Configuration with Ansible",
+    "category": "automation",
+    "badge": "Automation",
+    "status": "Completed",
+    "description": "Idempotent Ansible playbooks for provisioning, security hardening, user management, and automated package management across Linux fleet instances.",
+    "highlights": [
+      "CIS benchmark compliant security hardening (SSH keys, UFW firewall, fail2ban)",
+      "Dynamic inventory management for cloud and on-premises Linux targets",
+      "Ansible Vault encryption for sensitive variables, tokens, and credentials",
+      "Automated testing with Molecule and Docker test containers"
+    ],
+    "tools": ["Ansible", "Linux (Ubuntu/Rocky)", "Bash", "Molecule", "Ansible Vault", "UFW"],
+    "metrics": "Provisioned and hardened 20+ servers consistently in under 4 minutes",
+    "githubUrl": "https://github.com/example/ansible-server-hardening",
+    "demoUrl": "https://example.com/demo/ansible"
+  }
+]

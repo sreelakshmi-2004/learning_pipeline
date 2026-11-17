@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="DevOps Learning Journey - A professional portfolio showcasing CI/CD pipelines, Kubernetes, Terraform, Docker, and Cloud Automation projects.">
+  <meta name="keywords"
+    content="DevOps, CI/CD, Docker, Kubernetes, Jenkins, Terraform, AWS, Prometheus, Grafana, GitOps">
+  <meta name="author" content="DevOps Engineer">
+  <title>DevOps Learning Journey | Continuous Integration, Delivery & Cloud</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Site Header & Sticky Navigation -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="#home" class="brand-logo" aria-label="DevOps Learning Journey Home">
+        <span class="brand-icon">
+          <img src="images/favicon.svg" alt="DevOps Infinity Logo" width="32" height="32">
+        </span>
+        <span>DevOps<span class="brand-highlight">Journey</span></span>
+      </a>
+
+      <!-- Desktop & Mobile Navigation Links -->
+      <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="#projects" class="btn-nav-primary">Explore Pipelines</a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======================================================================
+         1. HOME (HERO) SECTION
+         ====================================================================== -->
+    <section class="section hero-section" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge-container">
+            <span class="hero-badge">
+              <span class="hero-badge-dot"></span>
+              DevOps Continuous Engineering &amp; Automation
+            </span>
+          </div>
+
+          <h1 class="hero-title">
+            Architecting Resilient <br>
+            <span class="text-gradient">CI/CD &amp; Cloud Systems</span>
+          </h1>
+
+          <p class="hero-description">
+            Welcome to my DevOps Learning Journey. Bridging the gap between development and operations through
+            declarative infrastructure, automated testing, container orchestration, and continuous observability.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+              </svg>
+              View Projects
+            </a>
+            <a href="#skills" class="btn btn-secondary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              Explore Tech Stack
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h3>6+</h3>
+              <p>Production Setups</p>
+            </div>
+            <div class="stat-item">
+              <h3>100%</h3>
+              <p>Automated Pipelines</p>
+            </div>
+            <div class="stat-item">
+              <h3>99.9%</h3>
+              <p>Availability Focus</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img src="images/hero-illustration.svg" alt="DevOps CI/CD Pipeline Architecture Illustration" width="480"
+            height="370">
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         2. ABOUT SECTION
+         ====================================================================== -->
+    <section class="section section-alt" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">About My Journey</span>
+          <h2 class="section-title">From Code to Cloud Infrastructure</h2>
+          <p class="section-subtitle">
+            A methodical expedition into modern DevOps practices, site reliability engineering, and infrastructure
+            automation.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-content">
+            <h3>Cultivating Automation, Quality, and Resilience</h3>
+            <p>
+              My journey into DevOps started with a simple conviction: software delivery should be dependable,
+              repeatable, and fast. Rather than manual server setups and firefighting deployments, I strive for
+              self-healing systems, immutable container images, and automated pipelines.
+            </p>
+            <p>
+              Every project in this portfolio documents an iterative milestone—from mastering Linux kernel basics and
+              Bash automation, to orchestrating multi-region Kubernetes clusters with Helm and ArgoCD GitOps workflows.
+            </p>
+
+            <div class="about-highlights">
+              <div class="about-highlight-item">
+                <span class="highlight-icon">✓</span>
+                <div class="highlight-text">
+                  <strong>Infrastructure as Code:</strong> Zero manual console clicks; everything codified in Terraform
+                  and Ansible.
+                </div>
+              </div>
+              <div class="about-highlight-item">
+                <span class="highlight-icon">✓</span>
+                <div class="highlight-text">
+                  <strong>Continuous Security (DevSecOps):</strong> Automated vulnerability scans with Trivy and
+                  SonarQube in every build.
+                </div>
+              </div>
+              <div class="about-highlight-item">
+                <span class="highlight-icon">✓</span>
+                <div class="highlight-text">
+                  <strong>Observability First:</strong> Real-time golden signals metrics with Prometheus, Grafana, and
+                  structured logging.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-card-panel">
+            <div class="panel-header">
+              <span class="panel-title">DevOps Lifecycle Core Pillars</span>
+              <span class="panel-tag">6 Key Domains</span>
+            </div>
+
+            <div class="pillars-grid">
+              <div class="pillar-item">
+                <div class="pillar-num">01 / VCS</div>
+                <div class="pillar-title">Git &amp; Branching</div>
+                <div class="pillar-desc">Trunk-based workflow, commit hooks, pull request reviews.</div>
+              </div>
+
+              <div class="pillar-item">
+                <div class="pillar-num">02 / BUILD</div>
+                <div class="pillar-title">Continuous Integration</div>
+                <div class="pillar-desc">Multi-stage Docker builds, unit testing, automated linting.</div>
+              </div>
+
+              <div class="pillar-item">
+                <div class="pillar-num">03 / ORCHESTRATE</div>
+                <div class="pillar-title">Kubernetes &amp; Helm</div>
+                <div class="pillar-desc">Pod autoscaling, zero-trust ingress, declarative releases.</div>
+              </div>
+
+              <div class="pillar-item">
+                <div class="pillar-num">04 / PROVISION</div>
+                <div class="pillar-title">Terraform &amp; IaC</div>
+                <div class="pillar-desc">Cloud VPCs, IAM least-privilege, modular state backends.</div>
+              </div>
+
+              <div class="pillar-item">
+                <div class="pillar-num">05 / MONITOR</div>
+                <div class="pillar-title">Telemetry &amp; Alerts</div>
+                <div class="pillar-desc">Prometheus time series, custom Grafana dashboards, Alertmanager.</div>
+              </div>
+
+              <div class="pillar-item">
+                <div class="pillar-num">06 / OPERATE</div>
+                <div class="pillar-title">Reliability &amp; SRE</div>
+                <div class="pillar-desc">SLO/SLA targets, self-healing deployments, incident runbooks.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3. SKILLS SECTION
+         ====================================================================== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Technical Competencies</span>
+          <h2 class="section-title">DevOps Toolchain &amp; Expertise</h2>
+          <p class="section-subtitle">
+            Tools, cloud platforms, and methodologies mastered along my continuous engineering path.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Category 1: CI/CD & Delivery -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">⚙️</div>
+              <div class="skill-cat-info">
+                <h3>CI/CD &amp; GitOps</h3>
+                <p>Pipelines &amp; Delivery Automation</p>
+              </div>
+            </div>
+            <p style="font-size: 0.88rem; color: #4B5563; margin-bottom: 1rem;">
+              Designing multi-stage automated pipelines with quality gates, automated testing, container packaging, and
+              declarative GitOps synchronization.
+            </p>
+            <div class="skill-badge-list">
+              <span class="skill-pill">Jenkins Declarative</span>
+              <span class="skill-pill">GitHub Actions</span>
+              <span class="skill-pill">ArgoCD</span>
+              <span class="skill-pill">SonarQube</span>
+              <span class="skill-pill">Trivy Security</span>
+              <span class="skill-pill">GitLab CI</span>
+            </div>
+          </div>
+
+          <!-- Category 2: Containers & Orchestration -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">🐳</div>
+              <div class="skill-cat-info">
+                <h3>Containers &amp; K8s</h3>
+                <p>Cloud Native Packaging &amp; Scaling</p>
+              </div>
+            </div>
+            <p style="font-size: 0.88rem; color: #4B5563; margin-bottom: 1rem;">
+              Building production-ready, minimal Alpine container images and managing resilient Kubernetes clusters with
+              Helm charts and Ingress controllers.
+            </p>
+            <div class="skill-badge-list">
+              <span class="skill-pill">Docker</span>
+              <span class="skill-pill">Kubernetes (K8s)</span>
+              <span class="skill-pill">Helm 3</span>
+              <span class="skill-pill">Nginx Ingress</span>
+              <span class="skill-pill">HPA Autoscaling</span>
+              <span class="skill-pill">Docker Compose</span>
+            </div>
+          </div>
+
+          <!-- Category 3: Infrastructure as Code & Cloud -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">☁️</div>
+              <div class="skill-cat-info">
+                <h3>IaC &amp; Cloud</h3>
+                <p>Cloud Architecture &amp; Provisioning</p>
+              </div>
+            </div>
+            <p style="font-size: 0.88rem; color: #4B5563; margin-bottom: 1rem;">
+              Codifying cloud resources across Amazon Web Services with reusable Terraform modules, S3 remote state
+              locking, and configuration management.
+            </p>
+            <div class="skill-badge-list">
+              <span class="skill-pill">Terraform</span>
+              <span class="skill-pill">AWS (VPC, EC2, S3, IAM)</span>
+              <span class="skill-pill">Ansible Playbooks</span>
+              <span class="skill-pill">CloudFormation</span>
+              <span class="skill-pill">Remote Backends</span>
+              <span class="skill-pill">tfsec</span>
+            </div>
+          </div>
+
+          <!-- Category 4: Observability & Logging -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">📊</div>
+              <div class="skill-cat-info">
+                <h3>Observability &amp; SRE</h3>
+                <p>Telemetry, Metrics &amp; Monitoring</p>
+              </div>
+            </div>
+            <p style="font-size: 0.88rem; color: #4B5563; margin-bottom: 1rem;">
+              Comprehensive monitoring with Prometheus scraping, Grafana dashboards, Alertmanager notification routing,
+              and log aggregation.
+            </p>
+            <div class="skill-badge-list">
+              <span class="skill-pill">Prometheus</span>
+              <span class="skill-pill">Grafana Dashboards</span>
+              <span class="skill-pill">Alertmanager</span>
+              <span class="skill-pill">Node Exporter</span>
+              <span class="skill-pill">Loki &amp; Promtail</span>
+              <span class="skill-pill">cAdvisor</span>
+            </div>
+          </div>
+
+          <!-- Category 5: OS & Scripting -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">💻</div>
+              <div class="skill-cat-info">
+                <h3>Linux &amp; Scripting</h3>
+                <p>Systems Administration &amp; Scripting</p>
+              </div>
+            </div>
+            <p style="font-size: 0.88rem; color: #4B5563; margin-bottom: 1rem;">
+              Automating operational tasks with Bash shell scripts, Python utility modules, Cron scheduling, and solid
+              Linux server administration.
+            </p>
+            <div class="skill-badge-list">
+              <span class="skill-pill">Linux (Ubuntu/Alpine)</span>
+              <span class="skill-pill">Bash Scripting</span>
+              <span class="skill-pill">Python Automation</span>
+              <span class="skill-pill">Systemd &amp; Cron</span>
+              <span class="skill-pill">SSH &amp; SSL/TLS</span>
+              <span class="skill-pill">Nginx Configuration</span>
+            </div>
+          </div>
+
+          <!-- Category 6: DevSecOps & Best Practices -->
+          <div class="skill-category-card">
+            <div class="skill-cat-header">
+              <div class="skill-cat-icon">🛡️</div>
+              <div class="skill-cat-info">
+                <h3>DevSecOps &amp; Quality</h3>
+                <p>Security Hardening &amp; Compliance</p>
+              </div>
+            </div>
+            <p style="font-size: 0.88rem; color: #4B5563; margin-bottom: 1rem;">
+              Shifting security left into early pipeline stages, enforcing least privilege permissions, secrets
+              management, and automated scanning.
+            </p>
+            <div class="skill-badge-list">
+              <span class="skill-pill">Static Analysis</span>
+              <span class="skill-pill">Vulnerability Scanning</span>
+              <span class="skill-pill">Ansible Vault</span>
+              <span class="skill-pill">CIS Hardening</span>
+              <span class="skill-pill">Secrets Management</span>
+              <span class="skill-pill">Zero-Trust Basics</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. PROJECTS SECTION (Loaded dynamically via fetch() from data/projects.json)
+         ====================================================================== -->
+    <section class="section section-alt" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Live Implementations</span>
+          <h2 class="section-title">DevOps Projects &amp; Pipelines</h2>
+          <p class="section-subtitle">
+            Hands-on projects loaded asynchronously via JavaScript <code>fetch()</code> from
+            <code>data/projects.json</code>.
+          </p>
+        </div>
+
+        <!-- Filter Buttons & Instant Search Bar -->
+        <div class="projects-controls">
+          <div class="filter-buttons" role="tablist" aria-label="Project Categories">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="cicd">CI/CD &amp; GitOps</button>
+            <button class="filter-btn" data-filter="containers">Containers &amp; K8s</button>
+            <button class="filter-btn" data-filter="iac">IaC &amp; Cloud</button>
+            <button class="filter-btn" data-filter="monitoring">Observability</button>
+            <button class="filter-btn" data-filter="automation">Automation</button>
+          </div>
+
+          <div class="search-bar-wrapper">
+            <span class="search-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </span>
+            <input type="text" id="projectSearch" class="search-input"
+              placeholder="Search by tool (e.g. Docker, Terraform, Jenkins)..." aria-label="Search projects">
+          </div>
+        </div>
+
+        <!-- Dynamic Projects Grid Container -->
+        <div class="projects-grid" id="projectsContainer">
+          <!-- Rendered dynamically by js/script.js via fetch() -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. CONTACT SECTION
+         ====================================================================== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Connect &amp; Collaborate</span>
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-subtitle">
+            Have questions about a pipeline setup, want to talk cloud architecture, or collaborate on DevOps automation?
+            Send a message!
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Contact Channels -->
+          <div class="contact-info">
+            <h3 style="font-size: 1.4rem; font-weight: 700; color: #1E1B4B; margin-bottom: 0.75rem;">
+              Let's Discuss DevOps &amp; Cloud Infrastructure
+            </h3>
+            <p style="font-size: 0.95rem; color: #4B5563; line-height: 1.6; margin-bottom: 1.5rem;">
+              Whether you are looking to optimize continuous deployment, stabilize container clusters, or audit
+              infrastructure code, feel free to reach out.
+            </p>
+
+            <div class="contact-info-list">
+              <div class="contact-info-card">
+                <div class="contact-icon">✉️</div>
+                <div>
+                  <h4>Email Address</h4>
+                  <p><a href="mailto:devops.journey@example.com">devops.journey@example.com</a></p>
+                </div>
+              </div>
+
+              <div class="contact-info-card">
+                <div class="contact-icon">🐙</div>
+                <div>
+                  <h4>GitHub Repositories</h4>
+                  <p><a href="https://github.com" target="_blank"
+                      rel="noopener noreferrer">github.com/devops-journey</a></p>
+                </div>
+              </div>
+
+              <div class="contact-info-card">
+                <div class="contact-icon">💼</div>
+                <div>
+                  <h4>LinkedIn Profile</h4>
+                  <p><a href="https://linkedin.com" target="_blank"
+                      rel="noopener noreferrer">linkedin.com/in/devops-journey</a></p>
+                </div>
+              </div>
+
+              <div class="contact-info-card">
+                <div class="contact-icon">📍</div>
+                <div>
+                  <h4>Location</h4>
+                  <p>Global / Remote (Cloud-Native)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Contact Form -->
+          <div class="contact-form-wrapper">
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #1E1B4B; margin-bottom: 1.25rem;">
+              Send a Direct Message
+            </h3>
+
+            <form id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contactName" class="form-label">Your Name *</label>
+                  <input type="text" id="contactName" class="form-input" placeholder="e.g. Alex Smith" required>
+                </div>
+                <div class="form-group">
+                  <label for="contactEmail" class="form-label">Email Address *</label>
+                  <input type="email" id="contactEmail" class="form-input" placeholder="alex@company.com" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contactSubject" class="form-label">Subject</label>
+                <input type="text" id="contactSubject" class="form-input"
+                  placeholder="e.g. Kubernetes Pipeline Inquiry">
+              </div>
+
+              <div class="form-group">
+                <label for="contactMessage" class="form-label">Message *</label>
+                <textarea id="contactMessage" class="form-textarea"
+                  placeholder="Describe your project, question or collaboration ideas..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
+                Send Message
+              </button>
+
+              <div id="formStatus" class="form-status" role="alert"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#home" class="brand-logo">
+            <span class="brand-icon">
+              <img src="images/favicon.svg" alt="DevOps Logo" width="28" height="28">
+            </span>
+            <span>DevOps<span class="brand-highlight">Journey</span></span>
+          </a>
+          <p>
+            An open-source, reproducible static showcase documenting continuous integration, container orchestration,
+            infrastructure as code, and cloud automation.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About Journey</a>
+            <a href="#skills">Skills &amp; Toolchain</a>
+            <a href="#projects">Pipeline Projects</a>
+            <a href="#contact">Contact &amp; Connect</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>DevOps Resources</h4>
+          <div class="footer-links">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub Repos</a>
+            <a href="https://www.docker.com" target="_blank" rel="noopener noreferrer">Docker Hub</a>
+            <a href="https://kubernetes.io" target="_blank" rel="noopener noreferrer">Kubernetes Docs</a>
+            <a href="https://www.terraform.io" target="_blank" rel="noopener noreferrer">Terraform Registry</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; <span id="currentYear"></span> DevOps Learning Journey. All rights reserved.
+        </div>
+        <div class="footer-tech-stack">
+          <span>HTML5</span> • <span>CSS3</span> • <span>Vanilla JS</span> • <span>Nginx Alpine</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Project Details Modal -->
+  <div class="modal-backdrop" id="projectModal" role="dialog" aria-modal="true" aria-label="Project Details Modal">
+    <div class="modal-window">
+      <button class="modal-close-btn" id="closeModal" aria-label="Close project modal">&times;</button>
+      <div id="modalBody">
+        <!-- Injected dynamically by js/script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top Floating Button -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+  </button>
+
+  <!-- External Script -->
+  <script src="js/script.js" defer></script>
+</body>
+
+</html>
