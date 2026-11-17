@@ -1,131 +1,98 @@
+
 pipeline {
     agent any
 
     environment {
-        APP_NAME        = 'devops-website'
-        IMAGE_NAME      = 'devops-learning-journey'
-        IMAGE_TAG       = "${BUILD_NUMBER ?: 'latest'}"
-        TEST_CONTAINER  = "devops-website-test-${BUILD_NUMBER ?: 'local'}"
-        TEST_PORT       = '8088'
-        DOCKER_REGISTRY = 'docker.io/library' // Replace with your Docker Hub / ECR registry
-    }
-
-    options {
-        timeout(time: 15, unit: 'MINUTES')
-        buildDiscarder(logRotator(numToKeepStr: '10'))
-        ansiColor('xterm')
+        DOCKER_CREDENTIALS_ID = 'docker-cred'
+        DOCKER_IMAGE          = 'sreelakshmins2004/devops-website'
+        SONAR_SERVER_NAME     = 'sonarqube-env'
+        SONAR_SCANNER_TOOL    = 'sonar-scanner'
+        GIT_CREDENTIALS_ID    = 'github-cred'
     }
 
     stages {
-        stage('Checkout & Code Validation') {
+        stage('Checkout Source Code') {
             steps {
-                echo "=== Step 1: Validating project structure and static files ==="
-                script {
-                    // Check required files exist
-                    def requiredFiles = [
-                        'index.html',
-                        'css/style.css',
-                        'js/script.js',
-                        'data/projects.json',
-                        'Dockerfile'
-                    ]
+                echo "Checking out source code from GitHub..."
+                checkout scm
+            }
+        }
 
-                    for (file in requiredFiles) {
-                        if (!fileExists(file)) {
-                            error("Required file ${file} is missing!")
-                        }
+        stage('SonarQube Analysis') {
+            steps {
+                script {
+                    def scannerHome = tool "${SONAR_SCANNER_TOOL}"
+                    withSonarQubeEnv("${SONAR_SERVER_NAME}") {
+                        sh "${scannerHome}/bin/sonar-scanner \
+                            -Dsonar.projectKey=devops-website \
+                            -Dsonar.projectName='DevOps Website' \
+                            -Dsonar.sources=. \
+                            -Dsonar.exclusions=Jenkinsfile,Dockerfile"
                     }
-                    echo "All core files are present."
                 }
             }
         }
 
-        stage('JSON & Syntax Linting') {
+        stage('File Verification') {
             steps {
-                echo "=== Step 2: Validating data/projects.json ==="
+                echo "Verifying website files..."
                 sh '''
-                    # Validate JSON syntax using python or jq if available
-                    if command -v python3 &>/dev/null; then
-                        python3 -m json.tool data/projects.json > /dev/null
-                        echo "projects.json is valid JSON."
-                    elif command -v jq &>/dev/null; then
-                        jq . data/projects.json > /dev/null
-                        echo "projects.json is valid JSON."
-                    else
-                        echo "Warning: Neither python3 nor jq found for JSON validation; skipping."
-                    fi
+                    test -f index.html
+                    test -f css/style.css
+                    test -f js/script.js
+                    test -f data/projects.json
+                    test -f Dockerfile
                 '''
+                echo "All required website files are verified."
             }
         }
 
-        stage('Docker Build') {
+        stage('Build & Post Docker Image') {
             steps {
-                echo "=== Step 3: Building Nginx Docker Image ==="
-                sh """
-                    docker build -t ${IMAGE_NAME}:${IMAGE_TAG} -t ${IMAGE_NAME}:latest .
-                """
+                script {
+                    withCredentials([usernamePassword(
+                        credentialsId: "${DOCKER_CREDENTIALS_ID}",
+                        usernameVariable: 'DOCKER_USER',
+                        passwordVariable: 'DOCKER_PASS'
+                    )]) {
+                        sh """
+                            echo "\$DOCKER_PASS" | docker login -u "\$DOCKER_USER" --password-stdin
+
+                            docker build -t ${DOCKER_IMAGE}:${env.BUILD_NUMBER} -t ${DOCKER_IMAGE}:latest -f ./Dockerfile .
+
+                            docker push ${DOCKER_IMAGE}:${env.BUILD_NUMBER}
+                            docker push ${DOCKER_IMAGE}:latest
+                        """
+                    }
+                }
             }
         }
 
-        stage('Container Health & Integration Test') {
+        stage('Deploy to EC2') {
             steps {
-                echo "=== Step 4: Running Test Container on Port ${TEST_PORT} ==="
-                sh """
-                    # Stop any existing test container
-                    docker rm -f ${TEST_CONTAINER} || true
+                script {
+                    sh """
+                        docker pull ${DOCKER_IMAGE}:${env.BUILD_NUMBER}
 
-                    # Run new container
-                    docker run -d --name ${TEST_CONTAINER} -p ${TEST_PORT}:80 ${IMAGE_NAME}:${IMAGE_TAG}
+                        docker stop devops-website || true
+                        docker rm devops-website || true
 
-                    # Wait for Nginx to initialize
-                    sleep 3
-
-                    # Verify HTTP response 200 for index.html
-                    curl -s -o /dev/null -w "%{http_code}" http://localhost:${TEST_PORT}/ | grep 200
-
-                    # Verify projects.json is served with HTTP 200 and valid JSON
-                    curl -s -f http://localhost:${TEST_PORT}/data/projects.json | grep -q "DevOps"
-
-                    echo "Integration tests passed: Nginx container is healthy and serving static files."
-                """
-            }
-        }
-
-        stage('Security Vulnerability Scan (Optional)') {
-            steps {
-                echo "=== Step 5: Scanning Docker image with Trivy (if installed) ==="
-                sh '''
-                    if command -v trivy &>/dev/null; then
-                        trivy image --severity HIGH,CRITICAL --exit-code 0 ${IMAGE_NAME}:${IMAGE_TAG}
-                    else
-                        echo "Trivy is not installed on this Jenkins agent. Skipping vulnerability scan."
-                    fi
-                '''
-            }
-        }
-
-        stage('Deploy / Release') {
-            steps {
-                echo "=== Step 6: Deploying / Staging Container ==="
-                echo "Image ${IMAGE_NAME}:${IMAGE_TAG} is ready for production deployment."
-                // In production:
-                // sh "docker push ${DOCKER_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG}"
+                        docker run -d \
+                            --name devops-website \
+                            -p 80:80 \
+                            ${DOCKER_IMAGE}:${env.BUILD_NUMBER}
+                    """
+                }
             }
         }
     }
 
     post {
-        always {
-            echo "=== Cleaning up test containers ==="
-            sh """
-                docker rm -f ${TEST_CONTAINER} || true
-            """
-        }
         success {
-            echo "Pipeline succeeded! DevOps Learning Journey website built and validated successfully."
+            echo 'Pipeline executed successfully! DevOps website deployed to EC2.'
         }
         failure {
-            echo "Pipeline failed! Please check console logs for errors."
+            echo 'Pipeline failed. Please review the stage logs above.'
         }
     }
 }
